@@ -1,3 +1,4 @@
 aIgnorer/
 .vscode
 target/
+.idea

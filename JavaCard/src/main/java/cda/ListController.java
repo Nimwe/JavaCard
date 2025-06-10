@@ -41,7 +41,7 @@ public class ListController {
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         mobilePhone.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
-        mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        mail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         // Initialistion de la liste des observables à partir du CRUD
         contactList = FXCollections.observableArrayList(cda.model.Crud.getAllContacts());
@@ -108,15 +108,17 @@ public class ListController {
             alert.showAndWait();
         }
     }
-    // Export 
+
+    // Export
     @FXML
-    private void export(){
+    private void export() {
 
     }
-    // Cancel 
+
+    // Cancel
     @FXML
-    private void cancel(){
-        
+    private void cancel() {
+
     }
 
 }
