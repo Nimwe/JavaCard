@@ -55,7 +55,7 @@ public class ListController {
         Contact contact = new Contact("John", "Do", "Unknown", Contact.Gender.MALE, LocalDate.of(1980, 01, 01), null,
                 "0606060606",
                 "0909090909", "johnDo@inconnu.com",
-                null, "0 rue de nullePart", "00000", "Ailleurs",
+                null, "0 rue de nullePart", 00000, "Ailleurs",
                 "Avengers", "0707070707", "0202020202", "johnDoWorkMail@avengers.com", "avengers.com",
                 "C'est pas le plus malin des Avengers mais quand on est désespérés ça fait de la chair à canon");
 
