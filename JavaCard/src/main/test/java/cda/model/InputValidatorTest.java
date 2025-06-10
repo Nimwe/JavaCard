@@ -63,6 +63,15 @@ class InputValidatorTest {
     }
 
     @Test
+    void testIsValidZipCode() {
+        assertTrue(InputValidator.isValidZipCode("12345"));
+        assertFalse(InputValidator.isValidZipCode("12345a"));
+        assertFalse(InputValidator.isValidZipCode("123453"));
+        assertTrue(InputValidator.isValidZipCode(null));
+        assertTrue(InputValidator.isValidZipCode(""));
+    }
+
+    @Test
     void testIsChoiceSelected() {
         assertTrue(InputValidator.isChoiceSelected("MALE"));
         assertFalse(InputValidator.isChoiceSelected(""));

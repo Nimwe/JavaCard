@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/java/cda/model/InputValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/cda/model/InputValidatorTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Users\asus tuf\Downloads\php-8.3.3-Win32-vs16-x64\php.exe" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2y7nc90xfYEywbIUdHPdHEK6UiR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.ContactJsonSerializer.executor": "Run",
+    "JUnit.InputValidatorTest.executor": "Run",
+    "JUnit.InputValidatorTest.testIsNotEmpty.executor": "Run",
+    "JUnit.InputValidatorTest.testIsValidZipCode.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "formBranch",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\asus tuf\OneDrive\Documents\Afpa\Workspace\tmp\JavaCard\JavaCard\src\main\test\java\cda\model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ContactJsonSerializer">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="cda.App" />
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContactJsonSerializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cda.model.ContactJsonSerializer" />
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cda.model" />
+      <option name="MAIN_CLASS_NAME" value="cda.model.InputValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputValidatorTest.testIsNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cda.model" />
+      <option name="MAIN_CLASS_NAME" value="cda.model.InputValidatorTest" />
+      <option name="METHOD_NAME" value="testIsNotEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputValidatorTest.testIsValidZipCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cda.model" />
+      <option name="MAIN_CLASS_NAME" value="cda.model.InputValidatorTest" />
+      <option name="METHOD_NAME" value="testIsValidZipCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ContactJsonSerializer" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.InputValidatorTest.testIsValidZipCode" />
+        <item itemvalue="JUnit.InputValidatorTest" />
+        <item itemvalue="JUnit.InputValidatorTest.testIsNotEmpty" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.26775.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.26775.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="" />
+      <created>1749194555645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749194555645</updated>
+      <workItem from="1749194556857" duration="6926000" />
+      <workItem from="1749285535507" duration="2778000" />
+      <workItem from="1749370626701" duration="605000" />
+      <workItem from="1749371250165" duration="773000" />
+      <workItem from="1749372035283" duration="501000" />
+      <workItem from="1749535439468" duration="3601000" />
+      <workItem from="1749539425824" duration="9926000" />
+      <workItem from="1749556152279" duration="113000" />
+      <workItem from="1749556291813" duration="36000" />
+      <workItem from="1749556357818" duration="236000" />
+      <workItem from="1749556635726" duration="64000" />
+      <workItem from="1749556775060" duration="245000" />
+      <workItem from="1749557038814" duration="172000" />
+      <workItem from="1749557225388" duration="10000" />
+      <workItem from="1749557244545" duration="28000" />
+      <workItem from="1749557291183" duration="120000" />
+      <workItem from="1749557420828" duration="682000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

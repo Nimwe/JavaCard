@@ -26,8 +26,13 @@ public class InputValidator {
         return url == null || url.trim().isEmpty() || url.matches("^(https?://)?[\\w.-]+\\.[a-z]{2,}$");
     }
 
+    public static boolean isValidZipCode(String zipCode) {
+
+        return zipCode == null || zipCode.trim().isEmpty() || zipCode.matches("^[0-9]{5}");
+    }
+
     public static boolean isChoiceSelected(String value) {
-        return value != null && !value.trim().isEmpty();
+        return value == null && !value.trim().isEmpty();
     }
 }
 

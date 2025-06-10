@@ -2,6 +2,7 @@ package cda.model;
 
 import java.time.LocalDate;
 
+
 public class Contact {
     private String firstName;
     private String lastName;
@@ -16,7 +17,7 @@ public class Contact {
     private String gitLink;
 
     private String address;
-    private String zipCode;
+    private int zipCode;
     private String city;
 
     private String companyName;
@@ -31,7 +32,7 @@ public class Contact {
         MALE, FEMALE, NON_BINAIRE
     }
 
-    public Contact(String firstName, String lastName, String nickname, Gender gender, LocalDate birthDate, String profilePic, String mobilePhone, String homePhone, String email, String gitLink, String address, String zipCode, String city, String companyName, String workPhone, String companyPhone, String companyEmail, String website, String description) {
+    public Contact(String firstName, String lastName, String nickname, Gender gender, LocalDate birthDate, String profilePic, String mobilePhone, String homePhone, String email, String gitLink, String address, int zipCode, String city, String companyName, String workPhone, String companyPhone, String companyEmail, String website, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nickname = nickname;
@@ -141,11 +142,11 @@ public class Contact {
         this.address = address;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 

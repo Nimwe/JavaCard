@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -42,25 +43,36 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </VBox>
-            <ImageView fx:id="profilePic" fitHeight="125.0" fitWidth="125.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../../Downloads/profil.png" />
-               </image></ImageView>
+            <StackPane prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 150;">
+               <children>
+                  <ImageView fx:id="profilePic" fitHeight="150.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../../Downloads/profil.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="230.0" prefWidth="200.0" spacing="20.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="230.0" prefWidth="320.0" spacing="5.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 25;">
                <children>
-                  <Label text="Personnel">
+                  <Label text="Personnel" textFill="#9570bd">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label text="Pseudo" />
-                        <TextField fx:id="pseudo" prefHeight="25.0" prefWidth="170.0" />
+                        <Label text="Pseudo">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="pseudo" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" left="80.0" top="15.0" />
@@ -68,8 +80,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label text="Mobile" />
-                        <TextField fx:id="mobileNo" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="Mobile">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="mobileNo" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -81,8 +96,11 @@
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="homeNo" prefHeight="25.0" prefWidth="220.0" />
+                        <TextField fx:id="homeNo" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -90,8 +108,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                      <children>
-                        <Label text="E-Mail" />
-                        <TextField fx:id="email" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="E-Mail">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="mail" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -99,8 +120,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="1.0">
                      <children>
-                        <Label text="Lien Git" />
-                        <TextField fx:id="gitLink" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="Lien Git">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="gitLink" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -115,15 +139,21 @@
                </padding></VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="230.0" prefWidth="320.0" spacing="5.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 25;">
                <children>
-                  <Label text="Profesionnel">
+                  <Label text="Profesionnel" textFill="#9570bd">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label text="Entreprise" />
-                        <TextField fx:id="companyName" prefHeight="25.0" prefWidth="159.0" />
+                        <Label text="Entreprise">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="companyName" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" left="80.0" top="15.0" />
@@ -131,8 +161,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label text="Mobile" />
-                        <TextField fx:id="workPhone" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="Mobile">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="workPhone" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -144,8 +177,11 @@
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="companyPhone" prefHeight="25.0" prefWidth="220.0" />
+                        <TextField fx:id="companyPhone" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -153,8 +189,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                      <children>
-                        <Label text="E-Mail" />
-                        <TextField fx:id="companyEmail" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="E-Mail">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="companyMail" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -162,8 +201,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                      <children>
-                        <Label text="Site" />
-                        <TextField fx:id="website" prefHeight="25.0" prefWidth="220.0" />
+                        <Label text="Site">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="website" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: CFD9D5;" />
                      </children>
                      <VBox.margin>
                         <Insets left="35.0" />
@@ -178,15 +220,21 @@
       </HBox>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="663.0" spacing="5.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 25;">
          <children>
-            <Label text="Information complémentaire">
+            <Label text="Information complémentaire" textFill="#9570bd">
                <VBox.margin>
                   <Insets left="20.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label text="Date de naissance" />
-                  <TextField fx:id="birthDate" prefHeight="25.0" prefWidth="150.0">
+                  <Label text="Date de naissance">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font></Label>
+                  <TextField fx:id="birthDate" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: CFD9D5;">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>
@@ -195,6 +243,9 @@
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
                   </Label>
                   <ChoiceBox fx:id="gender" prefHeight="25.0" prefWidth="207.0" />
                </children>
@@ -204,8 +255,11 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="200.0" spacing="60.0">
                <children>
-                  <Label text="Adresse" />
-                  <TextField fx:id="address" prefHeight="25.0" prefWidth="448.0" />
+                  <Label text="Adresse">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font></Label>
+                  <TextField fx:id="address" prefHeight="25.0" prefWidth="448.0" style="-fx-background-color: CFD9D5;" />
                </children>
                <VBox.margin>
                   <Insets left="20.0" top="40.0" />
@@ -217,8 +271,11 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="zipCode" prefHeight="25.0" prefWidth="140.0">
+                  <TextField fx:id="zipCode" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: CFD9D5;">
                      <HBox.margin>
                         <Insets right="60.0" />
                      </HBox.margin>
@@ -227,8 +284,11 @@
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="city" prefHeight="25.0" prefWidth="208.0" />
+                  <TextField fx:id="city" prefHeight="25.0" prefWidth="208.0" style="-fx-background-color: CFD9D5;" />
                </children>
                <VBox.margin>
                   <Insets left="20.0" top="5.0" />
@@ -238,10 +298,13 @@
                <VBox.margin>
                   <Insets left="20.0" top="45.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
             </Label>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="664.0">
                <children>
-                  <TextArea fx:id="description" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" />
+                  <TextArea fx:id="description" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: CFD9D5;" />
                </children>
                <VBox.margin>
                   <Insets bottom="30.0" />

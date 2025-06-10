@@ -23,7 +23,7 @@ public class FormController {
     @FXML
     private TextField homeNo;
     @FXML
-    private TextField email;
+    private TextField mail;
     @FXML
     private TextField gitLink;
 
@@ -34,7 +34,7 @@ public class FormController {
     @FXML
     private TextField companyPhone;
     @FXML
-    private TextField companyEmail;
+    private TextField companyMail;
     @FXML
     private TextField website;
 
