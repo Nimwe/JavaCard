@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactBinarySerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactVCardSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/Deserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/Serializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cda/ContactBinaire.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/java/cda/model/InputValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/cda/model/InputValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -53,6 +55,7 @@
     "JUnit.InputValidatorTest.testIsNotEmpty.executor": "Run",
     "JUnit.InputValidatorTest.testIsValidZipCode.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "formBranch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -74,7 +77,7 @@
       <recent name="C:\Users\asus tuf\OneDrive\Documents\Afpa\Workspace\tmp\JavaCard\JavaCard\src\main\test\java\cda\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ContactJsonSerializer">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -192,7 +195,7 @@
       <workItem from="1749557225388" duration="10000" />
       <workItem from="1749557244545" duration="28000" />
       <workItem from="1749557291183" duration="120000" />
-      <workItem from="1749557420828" duration="682000" />
+      <workItem from="1749557420828" duration="7021000" />
     </task>
     <servers />
   </component>
