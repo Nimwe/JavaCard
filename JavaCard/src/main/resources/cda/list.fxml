@@ -1,16 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cda.PrimaryController">
+<Pane fx:controller = "cda.ListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
+      <TableView editable="true" layoutX="52.0" layoutY="133.0" prefHeight="512.0" prefWidth="902.0">
+        <columns>
+          <TableColumn editable="false" prefWidth="26.0" resizable="false" />
+          <TableColumn fx:id="firstName" editable="false" prefWidth="120.0" text="Prénom" />
+            <TableColumn fx:id="LastName" editable="false" prefWidth="143.0" text="Nom" />
+            <TableColumn fx:id="phone" editable="false" prefWidth="109.0" text="Téléphone" />
+            <TableColumn fx:id="mail" editable="false" prefWidth="143.0" text="E-Mail" />
+        </columns>
+         <columnResizePolicy>
+            <columnResizePolicy>CONSTRAINED_RESIZE_POLICY</columnResizePolicy>
+         </columnResizePolicy>
+      </TableView>
+      <Label alignment="CENTER_RIGHT" layoutX="367.0" layoutY="72.0" prefHeight="30.0" prefWidth="300.0" style="-fx-border-color: #38574C;" text="R" textAlignment="RIGHT" textFill="#38574c">
+         <font>
+            <Font name="Georgia Bold" size="12.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" centerShape="false" layoutX="52.0" layoutY="646.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="902.0" spacing="100.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="create" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#create" style="-fx-background-color: none;" text="Créer" textAlignment="CENTER">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#update" style="-fx-background-color: none;" text="Modifier" textAlignment="CENTER">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: none;" text="Supprimer" textAlignment="CENTER">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="export" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#export" style="-fx-background-color: none;" text="Exporter" textAlignment="CENTER">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: none;" text="Annuler" textAlignment="CENTER">
+                     <font>
+                        <Font name="Georgia Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+</Pane>
