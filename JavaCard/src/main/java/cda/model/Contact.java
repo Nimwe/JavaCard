@@ -12,17 +12,17 @@ public class Contact {
 
     private String mobilePhone;
     private String homePhone;
-    private String mail;
+    private String email;
     private String gitLink;
 
     private String address;
-    private String zipCode;
+    private int zipCode;
     private String city;
 
     private String companyName;
     private String workPhone;
     private String companyPhone;
-    private String companyMail;
+    private String companyEmail;
     private String website;
 
     private String description;
@@ -32,8 +32,8 @@ public class Contact {
     }
 
     public Contact(String firstName, String lastName, String nickname, Gender gender, LocalDate birthDate,
-            String profilePic, String mobilePhone, String homePhone, String mail, String gitLink, String address,
-            String zipCode, String city, String companyName, String workPhone, String companyPhone, String companymail,
+            String profilePic, String mobilePhone, String homePhone, String email, String gitLink, String address,
+            int zipCode, String city, String companyName, String workPhone, String companyPhone, String companyEmail,
             String website, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,7 +43,7 @@ public class Contact {
         this.profilePic = profilePic;
         this.mobilePhone = mobilePhone;
         this.homePhone = homePhone;
-        this.mail = mail;
+        this.email = email;
         this.gitLink = gitLink;
         this.address = address;
         this.zipCode = zipCode;
@@ -51,7 +51,7 @@ public class Contact {
         this.companyName = companyName;
         this.workPhone = workPhone;
         this.companyPhone = companyPhone;
-        this.companyMail = companymail;
+        this.companyEmail = companyEmail;
         this.website = website;
         this.description = description;
     }
@@ -120,12 +120,12 @@ public class Contact {
         this.homePhone = homePhone;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setmail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getGitLink() {
@@ -144,11 +144,11 @@ public class Contact {
         this.address = address;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -184,12 +184,12 @@ public class Contact {
         this.companyPhone = companyPhone;
     }
 
-    public String getCompanymail() {
-        return companyMail;
+    public String getCompanyEmail() {
+        return companyEmail;
     }
 
-    public void setCompanymail(String companymail) {
-        this.companyMail = companymail;
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
     }
 
     public String getWebsite() {
