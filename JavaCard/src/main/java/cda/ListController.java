@@ -24,7 +24,7 @@ public class ListController {
     @FXML
     private TableColumn<Contact, String> lastName;
     @FXML
-    private TableColumn<Contact, String> phone;
+    private TableColumn<Contact, String> mobilePhone;
 
     @FXML
     private TableColumn<Contact, String> mail;
@@ -40,7 +40,7 @@ public class ListController {
         // "Contact"
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        mobilePhone.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
         mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
 
         // Initialistion de la liste des observables à partir du CRUD
@@ -107,6 +107,16 @@ public class ListController {
             alert.setContentText("Veuillez selectionner un contact à supprimer");
             alert.showAndWait();
         }
+    }
+    // Export 
+    @FXML
+    private void export(){
+
+    }
+    // Cancel 
+    @FXML
+    private void cancel(){
+        
     }
 
 }
