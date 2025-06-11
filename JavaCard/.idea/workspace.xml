@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cda/TestappContact.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/ContactBinarySerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactBinarySerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/TestappContact.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/TestappContact.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +192,7 @@
       <workItem from="1749557244545" duration="28000" />
       <workItem from="1749557291183" duration="120000" />
       <workItem from="1749557420828" duration="7781000" />
-      <workItem from="1749622416657" duration="2267000" />
+      <workItem from="1749622416657" duration="7134000" />
     </task>
     <servers />
   </component>

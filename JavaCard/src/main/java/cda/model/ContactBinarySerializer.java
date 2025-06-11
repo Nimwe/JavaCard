@@ -1,11 +1,11 @@
 package cda.model;
 
 import java.io.*;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 
 public class ContactBinarySerializer implements Serializer, Deserializer {
-    private static final long serialVersionUID = 1L;
+
 
     String filePath = "src/main/resources/cda/ContactBinaire.txt";
 
@@ -31,7 +31,7 @@ public class ContactBinarySerializer implements Serializer, Deserializer {
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
 
-            return (ArrayList<?>) objectInputStream.readObject();
+            return (ArrayList<Contact>) objectInputStream.readObject();
         }
     }
 

@@ -32,7 +32,8 @@ public class InputValidator {
     }
 
     public static boolean isChoiceSelected(String value) {
-        return value == null && !value.trim().isEmpty();
+
+        return value != null && !value.trim().isEmpty();
     }
 }
 
