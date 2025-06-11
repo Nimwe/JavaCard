@@ -5,43 +5,87 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import cda.model.Contact;
 import cda.model.Crud;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class ListController {
+public class AppContactController {
 
+    // Controller formulaires
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private ImageView profilePic;
+    @FXML
+    private TextField pseudo;
+    @FXML
+    private TextField mobileNo;
+    @FXML
+    private TextField homeNo;
+    @FXML
+    private TextField mail;
+    @FXML
+    private TextField gitLink;
+    @FXML
+    private TextField companyName;
+    @FXML
+    private TextField workPhone;
+    @FXML
+    private TextField companyPhone;
+    @FXML
+    private TextField companyMail;
+    @FXML
+    private TextField website;
+    @FXML
+    private TextField birthDate;
+    @FXML
+    private ChoiceBox<String> gender;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField zipCode;
+    @FXML
+    private TextField city;
+    @FXML
+    private TextArea description;
+
+    // Controler Tableview
     // Colonnes de la liste
     @FXML
     private TableView<Contact> tableView;
     @FXML
-    private TableColumn<Contact, String> firstName;
+    private TableColumn<Contact, String> firstNameColumn;
     @FXML
-    private TableColumn<Contact, String> lastName;
+    private TableColumn<Contact, String> lastNameColumn;
     @FXML
-    private TableColumn<Contact, String> mobilePhone;
-
+    private TableColumn<Contact, String> mobilePhoneColumn;
     @FXML
-    private TableColumn<Contact, String> mail;
+    private TableColumn<Contact, String> mailColumn;
 
     private Crud crud = new Crud();
-
     private ObservableList<Contact> contactList;
 
+    // Méthodes
     @FXML
     public void initialize() {
 
         // Initialisation des colonnes pour récuperer les proprietés des objects
         // "Contact"
-        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        mobilePhone.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
-        mail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        mobilePhoneColumn.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
+        mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         // Initialistion de la liste des observables à partir du CRUD
         contactList = FXCollections.observableArrayList(cda.model.Crud.getAllContacts());
