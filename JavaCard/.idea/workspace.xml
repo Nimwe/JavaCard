@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactBinarySerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactVCardSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/Deserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cda/model/Serializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cda/ContactBinaire.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cda/TestappContact.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/ContactJsonSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -56,10 +51,10 @@
     "JUnit.InputValidatorTest.testIsValidZipCode.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "formBranch",
+    "git-widget-placeholder": "merge",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard",
+    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard/src/main/resources/cda",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,10 +69,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\asus tuf\OneDrive\Documents\Afpa\Workspace\tmp\JavaCard\JavaCard\src\main\resources\cda" />
       <recent name="C:\Users\asus tuf\OneDrive\Documents\Afpa\Workspace\tmp\JavaCard\JavaCard\src\main\test\java\cda\model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -155,8 +151,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ContactJsonSerializer" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.ContactJsonSerializer" />
         <item itemvalue="JUnit.InputValidatorTest.testIsValidZipCode" />
         <item itemvalue="JUnit.InputValidatorTest" />
         <item itemvalue="JUnit.InputValidatorTest.testIsNotEmpty" />
@@ -195,7 +191,8 @@
       <workItem from="1749557225388" duration="10000" />
       <workItem from="1749557244545" duration="28000" />
       <workItem from="1749557291183" duration="120000" />
-      <workItem from="1749557420828" duration="7021000" />
+      <workItem from="1749557420828" duration="7781000" />
+      <workItem from="1749622416657" duration="2267000" />
     </task>
     <servers />
   </component>

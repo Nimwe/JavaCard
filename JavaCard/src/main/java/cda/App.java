@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        scene = new Scene(loadFXML("list"));
+        scene = new Scene(loadFXML("TestAppContact"));
         primaryStage.setScene(scene);
         primaryStage.setTitle("Gestion de Contacts - VCard");
         primaryStage.show();
