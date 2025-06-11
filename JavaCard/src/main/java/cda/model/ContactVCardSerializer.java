@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ContactVCardSerializer implements Serializer{
     @Override
-    public void saveList(String filePath, ArrayList objectsToSave) {
+    public void saveList(String filePath, ArrayList<?> objectsToSave) {
 
     }
 

@@ -21,7 +21,7 @@ public class ContactJsonSerializer implements Serializer {
 
 
     @Override
-    public void saveList(String filePath, ArrayList objectsToSave) {
+    public void saveList(String filePath, ArrayList<?> objectsToSave) {
         try {
             File file = new File(filePath);
             objectMapper.writeValue(file, objectsToSave);
