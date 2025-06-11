@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -73,8 +74,16 @@ public class AppContactController {
     @FXML
     private TableColumn<Contact, String> mailColumn;
 
+    // Controller boutons
     private Crud crud = new Crud();
     private ObservableList<Contact> contactList;
+
+    @FXML
+    private RadioButton csvRadio;
+    @FXML
+    private RadioButton jsonRadio;
+    @FXML
+    private RadioButton vcardRadio;
 
     // Méthodes
     @FXML
