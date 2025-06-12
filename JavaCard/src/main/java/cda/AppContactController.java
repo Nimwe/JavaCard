@@ -2,19 +2,17 @@ package cda;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import cda.model.Contact;
 import cda.model.Crud;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -63,6 +61,8 @@ public class AppContactController {
     // Controler Tableview
     // Colonnes de la liste
     @FXML
+    private TextField search;
+    @FXML
     private TableView<Contact> tableView;
     @FXML
     private TableColumn<Contact, String> firstNameColumn;
@@ -73,8 +73,13 @@ public class AppContactController {
     @FXML
     private TableColumn<Contact, String> mailColumn;
 
+    @FXML
+    private Button export;
+
     private Crud crud = new Crud();
     private ObservableList<Contact> contactList;
+
+
 
     // Méthodes
     @FXML
@@ -90,6 +95,30 @@ public class AppContactController {
         // Initialistion de la liste des observables à partir du CRUD
         contactList = FXCollections.observableArrayList(cda.model.Crud.getAllContacts());
         tableView.setItems(contactList);
+
+        searchContact();
+    }
+
+    @FXML
+    public void searchContact() {
+        FilteredList<Contact> filteredData = new FilteredList<>(contactList, p -> true);
+
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(contact -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseSearch = newValue.toLowerCase();
+
+                return contact.getFirstName().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getLastName().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getMobilePhone().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getEmail().toLowerCase().contains(lowerCaseSearch);
+            });
+        });
+
+        tableView.setItems(filteredData);
     }
 
     // Create
@@ -162,6 +191,22 @@ public class AppContactController {
     // Cancel
     @FXML
     private void cancel() {
+
+    }
+
+    @FXML
+    private void chooseDirectory() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Sélectionnez un dossier");
+
+        Stage stage = (Stage) export.getScene().getWindow();
+        File dir = directoryChooser.showDialog(stage);
+
+        if (dir != null) {
+            System.out.println("Dossier sélectionné : " + dir.getAbsolutePath());
+        } else {
+            System.out.println("Aucun dossier sélectionné.");
+        }
 
     }
 
