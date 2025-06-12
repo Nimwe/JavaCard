@@ -1,5 +1,6 @@
 package cda;
 
+import cda.tools.InputValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Optional;
 
 public class AppContactController {
@@ -124,16 +126,102 @@ public class AppContactController {
     // Create
     @FXML
     private void create() {
-        // Création d'un contact de test
-        Contact contact = new Contact("John", "Do", "Unknown", Contact.Gender.MALE, LocalDate.of(1980, 01, 01), null,
-                "0606060606",
-                "0909090909", "johnDo@inconnu.com",
-                null, "0 rue de nullePart", 00000, "Ailleurs",
-                "Avengers", "0707070707", "0202020202", "johnDoWorkMail@avengers.com", "avengers.com",
-                "C'est pas le plus malin des Avengers mais quand on est désespérés ça fait de la chair à canon");
+        String firstNamecre =  firstName.getText().trim();
+        String lastNamecre =  lastName.getText().trim();
+        String profilePicre = String.valueOf(profilePic);
+        String pseudocre =  pseudo.getText().trim();
+        String mobileNocre =  mobileNo.getText().trim();
+        String homeNocre =  homeNo.getText().trim();
+        String mailcre =  mail.getText().trim();
+        String gitLinkcre =  gitLink.getText().trim();
+        String companyNamecre =  companyName.getText().trim();
+        String workPhonecre =  workPhone.getText().trim();
+        String companyPhonecre =  companyPhone.getText().trim();
+        String companyMailcre =  companyMail.getText().trim();
+        String websitecre =  website.getText().trim();
+        String addresscre =  address.getText().trim();
+        String citycre = city.getText().trim();
+        String descriptioncre = description.getText().trim();
+        LocalDate birthDatecre = LocalDate.parse(birthDate.getText().trim());
+        String zipcre = zipCode.getText().trim();
+
+        // Date de naissance
+        if (birthDatecre == null) {
+            showAlert("Date de naissance manquante", "Veuillez sélectionner une date de naissance.");
+            return;
+        }
+
+        // Genre
+        String gendercre = gender.getSelectionModel().getSelectedItem();;
+        if (!InputValidator.isChoiceSelected(gendercre)) {
+            showAlert("Genre manquant", "Veuillez sélectionner un genre.");
+            return;
+        }
+
+        // Prénom & nom
+        if ((!InputValidator.isValidName(firstNamecre) || !InputValidator.isValidName(lastNamecre))) {
+            showAlert("Nom ou prénom invalide", "Veuillez entrer un nom et un prénom valides (lettres uniquement).");
+            return;
+        }
+
+        // Email
+        if (!InputValidator.isValidEmail(mailcre)) {
+            showAlert("Email invalide", "Veuillez entrer une adresse email valide.");
+            return;
+        }
+
+        // Telephones
+        if (!mobileNocre.isEmpty() && !InputValidator.isValidPhoneNumber(mobileNocre)) {
+            showAlert("Numéro invalide", "Le numéro de mobile est invalide.");
+            return;
+        }if (!InputValidator.isValidPhoneNumber(homeNocre)) {
+            showAlert("Numéro de téléphone fixe invalide", "Le numéro de téléphone fixe est invalide.");
+            return;
+        }
+
+        //Telephone pro
+        if (!InputValidator.isValidPhoneNumber(workPhonecre)) {
+            showAlert("Numéro invalide", "Le numéro de mobile pro. est invalide.");
+            return;
+        }if (!InputValidator.isValidPhoneNumber(companyPhonecre)) {
+            showAlert("Numéro de téléphone fixe invalide", "Le numéro de téléphone fixe est invalide.");
+            return;
+        }
+
+        // GitHub
+        if (!InputValidator.isValidGitLink(gitLinkcre)) {
+            showAlert("Lien GitHub invalide", "Veuillez entrer un lien GitHub valide ou laisser vide.");
+            return;
+        }
+
+        // Site web
+        if (!InputValidator.isValidWebsite(websitecre)) {
+            showAlert("Site web invalide", "Veuillez entrer une URL valide ou laisser vide.");
+            return;
+        }
+
+        // Code postal
+        String zipText = zipCode.getText().trim();
+        if (!InputValidator.isValidZipCode(zipText)) {
+            showAlert("Code postal invalide", "Le code postal doit comporter 5 chiffres.");
+            return;
+        }
+
+        int zipCodecre = Integer.parseInt(zipText); // sûr à ce stade
+
+        // Conversion genre vers enum
+        Contact.Gender genderEnum = Contact.Gender.valueOf(gendercre.toUpperCase());
+
+        // Création du contact
+        Contact contact = new Contact(
+                firstNamecre, lastNamecre, pseudocre, genderEnum, birthDatecre, profilePicre,
+                mobileNocre, homeNocre, mailcre, gitLinkcre, addresscre, zipCodecre, citycre,
+                companyNamecre, workPhonecre, companyPhonecre, companyMailcre, websitecre, descriptioncre
+        );
 
         contactList.add(contact);
         crud.addContact(contact);
+
     }
 
     // Update
@@ -208,6 +296,14 @@ public class AppContactController {
             System.out.println("Aucun dossier sélectionné.");
         }
 
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

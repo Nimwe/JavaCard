@@ -145,7 +145,7 @@
                      <children>
                         <ImageView fx:id="profilePic" fitHeight="150.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../../../Downloads/profil.png" />
+                              <Image url="@../../../../../assets/img/profil.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -213,7 +213,7 @@
                                  <children>
                                     <TextField fx:id="mobileNo" style="-fx-background-color: CFD9D5;" />
                                     <TextField fx:id="homeNo" style="-fx-background-color: CFD9D5;" />
-                                    <TextField fx:id="mail1" style="-fx-background-color: CFD9D5;" />
+                                    <TextField fx:id="mail" style="-fx-background-color: CFD9D5;" />
                                     <TextField fx:id="gitLink" style="-fx-background-color: CFD9D5;" />
                                  </children>
                               </VBox>
