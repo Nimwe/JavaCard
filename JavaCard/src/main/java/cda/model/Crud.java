@@ -45,7 +45,7 @@ public class Crud {
 
     // Export en JSon, vCard et CSV
     public void export(String format, List<Contact> contacts) {
-         switch (format.toLowerCase()) {
+        switch (format.toLowerCase()) {
             case "csv":
                 exportCSV();
                 break;

@@ -11,10 +11,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import cda.model.Contact;
 import cda.model.Crud;
+import cda.tools.DialogManager;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -62,7 +66,6 @@ public class AppContactController {
     private TextArea description;
 
     // Controler Tableview
-    // Colonnes de la liste
     @FXML
     private TableView<Contact> tableView;
     @FXML
@@ -85,7 +88,14 @@ public class AppContactController {
     @FXML
     private RadioButton vcardRadio;
 
+    // Controller export
+    @FXML
+    private ImageView qrCodeImage;
+    @FXML
+    private ToggleGroup formatToggleGroup;
+
     // Méthodes
+    // Initialisation
     @FXML
     public void initialize() {
 
@@ -146,7 +156,6 @@ public class AppContactController {
             alert.setTitle("Suppression");
             alert.setHeaderText("Suppresion d'un contact");
             alert.setContentText("Voulez-vous vraiment supprimer ?");
-
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 int index = contactList.indexOf(selectedContact);
@@ -163,9 +172,54 @@ public class AppContactController {
     }
 
     // Export
-    @FXML
-    private void export() {
+    private Stage dialogStage;
+    private boolean okClicked = false;
+    private String selectedFormat;
 
+    // Appel de la modal Export
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
+    // Affichage de la modal Export
+    @FXML
+    private void handleShowExportDialog() {
+        DialogManager.showExportDialog(this);
+    }
+
+    // Lancement de l'export
+    public void handleExport(String format) {
+        crud.export(format, contactList);
+    }
+
+    // Chargement du QrCode
+    public void setQRCodeImage(Image qrImage) {
+        qrCodeImage.setImage(qrImage);
+    }
+
+    // Action bouton Ok lors du clic
+    @FXML
+    private void handleOk() {
+        RadioButton selected = (RadioButton) formatToggleGroup.getSelectedToggle();
+        if (selected != null) {
+            selectedFormat = selected.getText();
+            okClicked = true;
+        }
+        dialogStage.close();
+    }
+
+    // Action bouton Annuler lors du clic
+    @FXML
+    private void handleCancel() {
+        dialogStage.close();
+    }
+
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+
+    public String getSelectedFormat() {
+        return selectedFormat;
     }
 
     // Cancel
