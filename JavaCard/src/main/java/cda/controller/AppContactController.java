@@ -1,4 +1,4 @@
-package cda;
+package cda.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,12 +13,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import cda.model.Contact;
-import cda.model.Crud;
-import cda.tools.DialogManager;
+import cda.Export;
+import cda.classe.Contact;
+import cda.model.AppContactModel;
+
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -31,7 +30,7 @@ public class AppContactController {
     @FXML
     private TextField lastName;
     @FXML
-    private ImageView profilePic;
+    private ImageView profilePic; 
     @FXML
     private TextField pseudo;
     @FXML
@@ -78,7 +77,7 @@ public class AppContactController {
     private TableColumn<Contact, String> mailColumn;
 
     // Controller boutons
-    private Crud crud = new Crud();
+    private AppContactModel crud = new AppContactModel();
     private ObservableList<Contact> contactList;
 
     @FXML
@@ -107,14 +106,14 @@ public class AppContactController {
         mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         // Initialistion de la liste des observables à partir du CRUD
-        contactList = FXCollections.observableArrayList(cda.model.Crud.getAllContacts());
+        contactList = FXCollections.observableArrayList(cda.model.AppContactModel.getAllContacts());
         tableView.setItems(contactList);
     }
 
     // Create
     @FXML
     private void create() {
-        // Création d'un contact de test
+        // Création d'un contact - En dur pour les tests
         Contact contact = new Contact("John", "Do", "Unknown", Contact.Gender.MALE, LocalDate.of(1980, 01, 01), null,
                 "0606060606",
                 "0909090909", "johnDo@inconnu.com",
@@ -172,54 +171,12 @@ public class AppContactController {
     }
 
     // Export
-    private Stage dialogStage;
-    private boolean okClicked = false;
-    private String selectedFormat;
 
-    // Appel de la modal Export
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
+    private Export exportWindow = new Export();
 
-    // Affichage de la modal Export
     @FXML
-    private void handleShowExportDialog() {
-        DialogManager.showExportDialog(this);
-    }
-
-    // Lancement de l'export
-    public void handleExport(String format) {
-        crud.export(format, contactList);
-    }
-
-    // Chargement du QrCode
-    public void setQRCodeImage(Image qrImage) {
-        qrCodeImage.setImage(qrImage);
-    }
-
-    // Action bouton Ok lors du clic
-    @FXML
-    private void handleOk() {
-        RadioButton selected = (RadioButton) formatToggleGroup.getSelectedToggle();
-        if (selected != null) {
-            selectedFormat = selected.getText();
-            okClicked = true;
-        }
-        dialogStage.close();
-    }
-
-    // Action bouton Annuler lors du clic
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-
-    public String getSelectedFormat() {
-        return selectedFormat;
+    private void handleExport() {
+        exportWindow.showExportWindow(contactList);
     }
 
     // Cancel

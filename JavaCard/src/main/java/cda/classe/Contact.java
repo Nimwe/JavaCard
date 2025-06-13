@@ -1,4 +1,4 @@
-package cda.model;
+package cda.classe;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -34,6 +34,7 @@ public class Contact implements Serializable {
         MALE, FEMALE, NON_BINAIRE
     }
 
+    // Controller
     public Contact(String firstName, String lastName, String nickname, Gender gender, LocalDate birthDate,
             String profilePic, String mobilePhone, String homePhone, String email, String gitLink, String address,
             int zipCode, String city, String companyName, String workPhone, String companyPhone, String companyEmail,
@@ -59,6 +60,7 @@ public class Contact implements Serializable {
         this.description = description;
     }
 
+    // Getter et Setter
     public String getFirstName() {
         return firstName;
     }

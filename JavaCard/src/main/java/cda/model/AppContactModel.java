@@ -3,13 +3,15 @@ package cda.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Crud {
+import cda.classe.Contact;
+
+public class AppContactModel {
 
     private static List<Contact> contacts;
 
-    public Crud() {
+    public AppContactModel() {
 
-        Crud.contacts = new ArrayList<>();
+        AppContactModel.contacts = new ArrayList<>();
     }
 
     // Create
@@ -60,9 +62,9 @@ public class Crud {
         }
     }
 
-    /**
-     * Méthode pour l'export au format CSV
-     */
+    // Méthode pour l'export
+
+    // CSV
     private void exportCSV() {
         try (java.io.FileWriter writer = new java.io.FileWriter("contacts.csv")) {
             writer.write(
@@ -96,9 +98,7 @@ public class Crud {
         }
     }
 
-    /**
-     * Méthode pour l'export au format JSON
-     */
+    // JSON
     private void exportJSON() {
         try (java.io.FileWriter writer = new java.io.FileWriter("contacts.json")) {
             writer.write("[\n");
@@ -134,9 +134,7 @@ public class Crud {
         }
     }
 
-    /**
-     * Méhode d'export au format VCard
-     */
+    // VCard
     private void exportVCard() {
         try (java.io.FileWriter writer = new java.io.FileWriter("contacts.vcf")) {
             for (Contact c : contacts) {

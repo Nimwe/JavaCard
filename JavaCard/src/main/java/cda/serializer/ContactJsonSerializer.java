@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import cda.model.Contact;
+import cda.classe.Contact;
 
 import java.io.File;
 import java.io.IOException;

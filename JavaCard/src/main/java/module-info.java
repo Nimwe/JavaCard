@@ -5,8 +5,12 @@ module cda {
     requires com.fasterxml.jackson.databind;
 
     opens cda to javafx.fxml;
-
-    //indique à la JVM d'autoriser la réflexion sur le package cda.model spécifiquement pour le module Jackson.
+    opens cda.controller to javafx.fxml;
     opens cda.model to com.fasterxml.jackson.databind, javafx.base;
+    // indique à la JVM d'autoriser la réflexion sur le package cda.model
+    // spécifiquement pour le module Jackson.
+
     exports cda;
+    exports cda.controller to javafx.fxml;
+    exports cda.classe;
 }
