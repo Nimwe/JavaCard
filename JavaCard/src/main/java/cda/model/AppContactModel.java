@@ -3,13 +3,13 @@ package cda.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Crud {
+public class AppContactModel {
 
     private static List<Contact> contacts;
 
-    public Crud() {
+    public AppContactModel() {
 
-        Crud.contacts = new ArrayList<>();
+        AppContactModel.contacts = new ArrayList<>();
     }
 
     // Create
@@ -43,7 +43,11 @@ public class Crud {
         }
     }
 
-    // Export 
+    public static void setContacts(List<Contact> contacts) {
+
+        AppContactModel.contacts = contacts;
+    }
+// Export
     //public void export()
 
 

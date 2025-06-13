@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/contact.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cda/AppContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/AppContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/tools/InputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/tools/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/Crud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,31 +44,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.ContactJsonSerializer.executor": "Run",
-    "JUnit.InputValidatorTest.executor": "Run",
-    "JUnit.InputValidatorTest.testIsNotEmpty.executor": "Run",
-    "JUnit.InputValidatorTest.testIsValidZipCode.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "methodeBranch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard/src/main/resources/cda",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ContactBinarySerializer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ContactJsonSerializer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InputValidatorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InputValidatorTest.testIsNotEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InputValidatorTest.testIsValidZipCode.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;methodeBranch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard/src/main/resources/cda&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\asus tuf\OneDrive\Documents\Afpa\Workspace\tmp\JavaCard\JavaCard\src\main\resources\cda" />
@@ -82,6 +85,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cda.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContactBinarySerializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cda.serializer.ContactBinarySerializer" />
+      <module name="JavaCard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cda.serializer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,22 +133,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InputValidatorTest.testIsNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaCard" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cda.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cda.model" />
-      <option name="MAIN_CLASS_NAME" value="cda.model.InputValidatorTest" />
-      <option name="METHOD_NAME" value="testIsNotEmpty" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InputValidatorTest.testIsValidZipCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaCard" />
       <extension name="coverage">
@@ -152,10 +152,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.ContactBinarySerializer" />
         <item itemvalue="Application.ContactJsonSerializer" />
         <item itemvalue="JUnit.InputValidatorTest.testIsValidZipCode" />
         <item itemvalue="JUnit.InputValidatorTest" />
-        <item itemvalue="JUnit.InputValidatorTest.testIsNotEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +194,9 @@
       <workItem from="1749557420828" duration="7781000" />
       <workItem from="1749622416657" duration="21043000" />
       <workItem from="1749708704633" duration="5970000" />
+      <workItem from="1749726457363" duration="9706000" />
+      <workItem from="1749797541449" duration="1456000" />
+      <workItem from="1749801742840" duration="6352000" />
     </task>
     <servers />
   </component>
