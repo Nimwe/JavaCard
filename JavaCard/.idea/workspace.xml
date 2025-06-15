@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/contact.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cda/AppContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/AppContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/Crud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,6 +194,8 @@
       <workItem from="1749726457363" duration="9706000" />
       <workItem from="1749797541449" duration="1456000" />
       <workItem from="1749801742840" duration="6352000" />
+      <workItem from="1749828673988" duration="476000" />
+      <workItem from="1749997226784" duration="301000" />
     </task>
     <servers />
   </component>

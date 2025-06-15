@@ -336,7 +336,18 @@ public class AppContactController {
     // Cancel
     @FXML
     private void cancel() {
+        clearFields();
+    }
 
+    @FXML
+    private void littleCancel() {
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+        if (selectedContact == null) {
+            clearFields();
+        } else {
+            seeContact(selectedContact);
+            setFieldsDisabled(true);
+        }
     }
 
     @FXML
