@@ -1,5 +1,6 @@
 package cda.controller;
 
+
 import cda.serializer.ContactBinarySerializer;
 import cda.tools.InputValidator;
 import javafx.collections.FXCollections;
@@ -11,24 +12,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
+
 import cda.Export;
 import cda.classe.Contact;
 import cda.model.AppContactModel;
 
 
-import java.io.File;
+
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static cda.classe.Contact.Gender.*;
@@ -67,7 +68,7 @@ public class AppContactController {
     @FXML
     private DatePicker birthDate;
     @FXML
-    private ChoiceBox gender;
+    private ChoiceBox<Contact.Gender> gender;
     @FXML
     private TextField address;
     @FXML
@@ -99,21 +100,14 @@ public class AppContactController {
     private TableColumn<Contact, String> mailColumn;
 
     // Controller boutons
-    private AppContactModel crud = new AppContactModel();
+    private final AppContactModel crud = new AppContactModel();
     private ObservableList<Contact> contactList;
 
-    @FXML
-    private RadioButton csvRadio;
-    @FXML
-    private RadioButton jsonRadio;
-    @FXML
-    private RadioButton vcardRadio;
+
 
     // Controller export
-    @FXML
-    private ImageView qrCodeImage;
-    @FXML
-    private ToggleGroup formatToggleGroup;
+
+
 
     // Méthodes
     // Initialisation
@@ -128,7 +122,19 @@ public class AppContactController {
         mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         // Initialistion de la liste des observables à partir du CRUD
-        contactList = FXCollections.observableArrayList(cda.model.AppContactModel.getAllContacts());
+        ContactBinarySerializer serializer = new ContactBinarySerializer();
+        List<?> rawList = serializer.loadList("src/main/resources/contact.bin");
+
+        // Créer une liste typée sans cast non sécurisé
+        ObservableList<Contact> loadedContacts = FXCollections.observableArrayList();
+        for (Object obj : rawList) {
+            if (obj instanceof Contact contact) {
+                loadedContacts.add(contact);
+            }
+        }
+
+        AppContactModel.setContacts(loadedContacts);
+        contactList = FXCollections.observableArrayList(AppContactModel.getAllContacts());
         tableView.setItems(contactList);
 
         setFieldsDisabled(true);
@@ -205,7 +211,7 @@ public class AppContactController {
             return;
         }
 
-        Contact.Gender gendercre = (Contact.Gender) gender.getValue();
+        Contact.Gender gendercre =gender.getValue();
         if (!InputValidator.isChoiceSelected(String.valueOf(gendercre))) {
             showAlert("Genre manquant", "Veuillez sélectionner un genre.");
             return;
@@ -347,7 +353,7 @@ public class AppContactController {
 
     // Export
 
-    private Export exportWindow = new Export();
+    private final Export exportWindow = new Export();
 
     @FXML
     private void handleExport() {
