@@ -1,7 +1,10 @@
 package cda.controller;
 
+import cda.serializer.ContactBinarySerializer;
+import cda.tools.InputValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -19,10 +22,16 @@ import cda.classe.Contact;
 import cda.model.AppContactModel;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static cda.model.Contact.Gender.*;
+
 public class AppContactController {
+
+    ObservableList<Contact.Gender> genderList = FXCollections.observableArrayList(MALE, FEMALE, NON_BINAIRE);
 
     // Controller formulaires
     @FXML
@@ -52,9 +61,9 @@ public class AppContactController {
     @FXML
     private TextField website;
     @FXML
-    private TextField birthDate;
+    private DatePicker birthDate;
     @FXML
-    private ChoiceBox<String> gender;
+    private ChoiceBox gender;
     @FXML
     private TextField address;
     @FXML
@@ -63,6 +72,11 @@ public class AppContactController {
     private TextField city;
     @FXML
     private TextArea description;
+
+    @FXML
+    private Button saveChangeButton;
+    @FXML
+    private Button cancelChangeButton;
 
     // Controler Tableview
     @FXML
@@ -96,7 +110,7 @@ public class AppContactController {
     // Méthodes
     // Initialisation
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException, ClassNotFoundException {
 
         // Initialisation des colonnes pour récuperer les proprietés des objects
         // "Contact"
@@ -108,6 +122,37 @@ public class AppContactController {
         // Initialistion de la liste des observables à partir du CRUD
         contactList = FXCollections.observableArrayList(cda.model.AppContactModel.getAllContacts());
         tableView.setItems(contactList);
+
+        setFieldsDisabled(true);
+        gender.setItems(genderList);
+
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                seeContact(newSelection);
+            }});
+        searchContact();
+    }
+
+    @FXML
+    public void searchContact() {
+        FilteredList<Contact> filteredData = new FilteredList<>(contactList, p -> true);
+
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(contact -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseSearch = newValue.toLowerCase();
+
+                return contact.getFirstName().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getLastName().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getMobilePhone().toLowerCase().contains(lowerCaseSearch)
+                        || contact.getEmail().toLowerCase().contains(lowerCaseSearch);
+            });
+        });
+
+        tableView.setItems(filteredData);
     }
 
     // Create
@@ -131,16 +176,10 @@ public class AppContactController {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedContact != null) {
-            int index = contactList.indexOf(selectedContact);
-            selectedContact.setMobilePhone("0909090906");
-            crud.updateContact(index, selectedContact);
-            tableView.refresh();
+           setFieldsDisabled(false);
+
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aucun contact sélectionné");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez selectionner un contact à modifier");
-            alert.showAndWait();
+            showAlert("Aucun contact sélectionné","Veuillez selectionner un contact à modifier");
         }
     }
 
@@ -182,7 +221,115 @@ public class AppContactController {
     // Cancel
     @FXML
     private void cancel() {
+        clearFields();
+    }
+
+    @FXML
+    private void littleCancel() {
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+        if (selectedContact == null) {
+            clearFields();
+        } else {
+            seeContact(selectedContact);
+            setFieldsDisabled(true);
+        }
+    }
+
+    @FXML
+    private void seeContact(Contact selectedContact) {
+
+        if (selectedContact != null) {
+            setFieldsDisabled(true);
+            firstName.setText(selectedContact.getFirstName());
+
+            lastName.setText(selectedContact.getLastName());
+//            profilePic
+            pseudo.setText(selectedContact.getNickname());
+            mobileNo.setText(selectedContact.getMobilePhone());
+            homeNo.setText(selectedContact.getHomePhone());
+            mail.setText(selectedContact.getEmail());
+            gitLink.setText(selectedContact.getGitLink());
+            companyName.setText(selectedContact.getCompanyName());
+            workPhone.setText(selectedContact.getWorkPhone());
+            companyPhone.setText(selectedContact.getCompanyPhone());
+            companyMail.setText(selectedContact.getCompanyEmail());
+            website.setText(selectedContact.getWebsite());
+            birthDate.setValue(selectedContact.getBirthDate());
+            gender.setValue(selectedContact.getGender());
+            address.setText(selectedContact.getAddress());
+            zipCode.setText(String.valueOf(selectedContact.getZipCode()));
+            city.setText(selectedContact.getCity());
+            description.setText(selectedContact.getDescription());
+        }
+    }
+
+    @FXML
+    private void chooseDirectory() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Sélectionnez un dossier");
+
+        Stage stage = (Stage) export.getScene().getWindow();
+        File dir = directoryChooser.showDialog(stage);
+
+        if (dir != null) {
+            System.out.println("Dossier sélectionné : " + dir.getAbsolutePath());
+        } else {
+            System.out.println("Aucun dossier sélectionné.");
+        }
 
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void setFieldsDisabled(boolean disable) {
+        saveChangeButton.setDisable(disable);
+        cancelChangeButton.setDisable(disable);
+        firstName.setDisable(disable);
+        lastName.setDisable(disable);
+        pseudo.setDisable(disable);
+        mobileNo.setDisable(disable);
+        homeNo.setDisable(disable);
+        mail.setDisable(disable);
+        gitLink.setDisable(disable);
+        companyName.setDisable(disable);
+        workPhone.setDisable(disable);
+        companyPhone.setDisable(disable);
+        companyMail.setDisable(disable);
+        website.setDisable(disable);
+        birthDate.setDisable(disable);
+        gender.setDisable(disable);
+        address.setDisable(disable);
+        zipCode.setDisable(disable);
+        city.setDisable(disable);
+        description.setDisable(disable);
+    }
+    public void clearFields() {
+        firstName.clear();
+        lastName.clear();
+        pseudo.clear();
+        mobileNo.clear();
+        homeNo.clear();
+        mail.clear();
+        gitLink.clear();
+        companyName.clear();
+        workPhone.clear();
+        companyPhone.clear();
+        companyMail.clear();
+        website.clear();
+        birthDate.setValue(null);
+        gender.setValue(null);
+        address.clear();
+        zipCode.clear();
+        city.clear();
+        description.clear();
+    }
+
+
 
 }
