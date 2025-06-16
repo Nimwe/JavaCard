@@ -26,7 +26,7 @@
          <children>
             <VBox>
                <children>
-                  <TextField fx:id="search" alignment="CENTER" promptText="Search" style="-fx-background-radius: 15;">
+                  <TextField fx:id="searchContact" alignment="CENTER" promptText="Search" style="-fx-background-radius: 15;">
                      <padding>
                         <Insets bottom="15.0" top="15.0" />
                      </padding>

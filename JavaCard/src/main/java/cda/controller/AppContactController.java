@@ -7,8 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 import cda.Export;
 import cda.classe.Contact;
 import cda.model.AppContactModel;
@@ -27,7 +31,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static cda.model.Contact.Gender.*;
+import static cda.classe.Contact.Gender.*;
 
 public class AppContactController {
 
@@ -77,6 +81,10 @@ public class AppContactController {
     private Button saveChangeButton;
     @FXML
     private Button cancelChangeButton;
+
+    // Controller recherche
+     @FXML
+    private TextField searchContact;
 
     // Controler Tableview
     @FXML
@@ -133,11 +141,12 @@ public class AppContactController {
         searchContact();
     }
 
+    // Search
     @FXML
     public void searchContact() {
         FilteredList<Contact> filteredData = new FilteredList<>(contactList, p -> true);
 
-        search.textProperty().addListener((observable, oldValue, newValue) -> {
+        searchContact.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(contact -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
@@ -224,6 +233,7 @@ public class AppContactController {
         clearFields();
     }
 
+    // Cancel de création de contact
     @FXML
     private void littleCancel() {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
@@ -235,6 +245,7 @@ public class AppContactController {
         }
     }
 
+    // Affiche la fiche contact aprés selection dans la liste
     @FXML
     private void seeContact(Contact selectedContact) {
 
@@ -243,8 +254,8 @@ public class AppContactController {
             firstName.setText(selectedContact.getFirstName());
 
             lastName.setText(selectedContact.getLastName());
-//            profilePic
-            pseudo.setText(selectedContact.getNickname());
+            // comment mettre profilePic ?
+            pseudo.setText(selectedContact.getNickName());
             mobileNo.setText(selectedContact.getMobilePhone());
             homeNo.setText(selectedContact.getHomePhone());
             mail.setText(selectedContact.getEmail());
@@ -263,22 +274,7 @@ public class AppContactController {
         }
     }
 
-    @FXML
-    private void chooseDirectory() {
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Sélectionnez un dossier");
-
-        Stage stage = (Stage) export.getScene().getWindow();
-        File dir = directoryChooser.showDialog(stage);
-
-        if (dir != null) {
-            System.out.println("Dossier sélectionné : " + dir.getAbsolutePath());
-        } else {
-            System.out.println("Aucun dossier sélectionné.");
-        }
-
-    }
-
+    // Factorisation de l'appel des alertes
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -287,6 +283,7 @@ public class AppContactController {
         alert.showAndWait();
     }
 
+    // Désactiver l'écriture dans les textfields
     private void setFieldsDisabled(boolean disable) {
         saveChangeButton.setDisable(disable);
         cancelChangeButton.setDisable(disable);
@@ -309,6 +306,8 @@ public class AppContactController {
         city.setDisable(disable);
         description.setDisable(disable);
     }
+
+    // Rendre les taxtfields vierges
     public void clearFields() {
         firstName.clear();
         lastName.clear();
@@ -329,7 +328,4 @@ public class AppContactController {
         city.clear();
         description.clear();
     }
-
-
-
 }

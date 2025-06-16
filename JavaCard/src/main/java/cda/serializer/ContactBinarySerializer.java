@@ -1,6 +1,6 @@
 package cda.serializer;
 
-import cda.model.Contact;
+import cda.classe.Contact;
 
 import java.io.*;
 import java.time.LocalDate;
