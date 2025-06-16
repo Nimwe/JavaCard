@@ -25,6 +25,10 @@ public class AppContactModel {
         return new ArrayList<>(contacts);
     }
 
+    public static void setContacts(List<Contact> contacts) {
+        AppContactModel.contacts = contacts;
+    }
+
     // Update
     public void updateContact(int index, Contact updateContact) {
         if (index >= 0 && index < contacts.size()) {

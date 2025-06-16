@@ -77,6 +77,10 @@ public class Contact implements Serializable {
         this.lastName = lastName;
     }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public String getNickName() {
         return nickname;
     }
