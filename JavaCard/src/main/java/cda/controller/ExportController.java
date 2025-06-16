@@ -6,6 +6,8 @@ import javafx.scene.control.RadioButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.util.List;
@@ -27,6 +29,9 @@ public class ExportController {
     @FXML
     private Button okButton;
 
+    @FXML
+    private ImageView qrCodeImage;
+
     private ExportModel model;
     private List<Contact> contacts;
 
@@ -45,6 +50,9 @@ public class ExportController {
         csvRadio.setToggleGroup(formatToggleGroup);
 
         jsonRadio.setSelected(true);
+
+        // Chargement de l'image QRCode
+        qrCodeImage.setImage(new Image("file:assets/img/QRcodeVert.png"));
     }
 
     /**

@@ -1,7 +1,5 @@
 package cda.controller;
 
-import cda.serializer.ContactBinarySerializer;
-import cda.tools.InputValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -19,14 +17,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
 import cda.Export;
 import cda.classe.Contact;
 import cda.model.AppContactModel;
 
-
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -43,7 +37,7 @@ public class AppContactController {
     @FXML
     private TextField lastName;
     @FXML
-    private ImageView profilePic; 
+    private ImageView profilePic;
     @FXML
     private TextField pseudo;
     @FXML
@@ -83,7 +77,7 @@ public class AppContactController {
     private Button cancelChangeButton;
 
     // Controller recherche
-     @FXML
+    @FXML
     private TextField searchContact;
 
     // Controler Tableview
@@ -137,7 +131,8 @@ public class AppContactController {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 seeContact(newSelection);
-            }});
+            }
+        });
         searchContact();
     }
 
@@ -185,10 +180,10 @@ public class AppContactController {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedContact != null) {
-           setFieldsDisabled(false);
+            setFieldsDisabled(false);
 
         } else {
-            showAlert("Aucun contact sélectionné","Veuillez selectionner un contact à modifier");
+            showAlert("Aucun contact sélectionné", "Veuillez selectionner un contact à modifier");
         }
     }
 
