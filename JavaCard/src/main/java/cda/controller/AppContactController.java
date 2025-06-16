@@ -167,16 +167,143 @@ public class AppContactController {
     // Create
     @FXML
     private void create() {
-        // Création d'un contact - En dur pour les tests
-        Contact contact = new Contact("John", "Do", "Unknown", Contact.Gender.MALE, LocalDate.of(1980, 01, 01), null,
-                "0606060606",
-                "0909090909", "johnDo@inconnu.com",
-                null, "0 rue de nullePart", 00000, "Ailleurs",
-                "Avengers", "0707070707", "0202020202", "johnDoWorkMail@avengers.com", "avengers.com",
-                "C'est pas le plus malin des Avengers mais quand on est désespérés ça fait de la chair à canon");
+        tableView.getSelectionModel().clearSelection(); // pour désélectionner un éventuel contact
+        setFieldsDisabled(false); // réactive les champs si besoin
+        clearFields();            // vide tous les champs
+    }
 
-        contactList.add(contact);
-        crud.addContact(contact);
+    //permet de valider la creation et la modification de contact
+    @FXML
+    private void handleSaveChange() {
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+
+
+        // Récupération des champs
+        String firstNamecre = firstName.getText().trim();
+        String lastNamecre = lastName.getText().trim();
+        String profilePicre = String.valueOf(profilePic);
+        String pseudocre = pseudo.getText().trim();
+        String mobileNocre = mobileNo.getText().trim();
+        String homeNocre = homeNo.getText().trim();
+        String mailcre = mail.getText().trim();
+        String gitLinkcre = gitLink.getText().trim();
+        String companyNamecre = companyName.getText().trim();
+        String workPhonecre = workPhone.getText().trim();
+        String companyPhonecre = companyPhone.getText().trim();
+        String companyMailcre = companyMail.getText().trim();
+        String websitecre = website.getText().trim();
+        String addresscre = address.getText().trim();
+        String citycre = city.getText().trim();
+        String descriptioncre = description.getText().trim();
+        LocalDate birthDatecre = birthDate.getValue();
+        String zipText = zipCode.getText().trim();
+
+        // Validations (comme avant)
+        if (birthDatecre == null) {
+            showAlert("Date de naissance manquante", "Veuillez sélectionner une date de naissance.");
+            return;
+        }
+
+        Contact.Gender gendercre = (Contact.Gender) gender.getValue();
+        if (!InputValidator.isChoiceSelected(String.valueOf(gendercre))) {
+            showAlert("Genre manquant", "Veuillez sélectionner un genre.");
+            return;
+        }
+
+        if (firstNamecre.isEmpty() || lastNamecre.isEmpty()) {
+            showAlert("Nom ou prénom manquant", "Veuillez entrer un nom et un prénom.");
+            return;
+        }
+
+        if (!InputValidator.isValidName(firstNamecre) || !InputValidator.isValidName(lastNamecre)) {
+            showAlert("Nom ou prénom invalide", "Veuillez entrer un nom et un prénom valides.");
+            return;
+        }
+
+        if (!InputValidator.isValidEmail(mailcre)) {
+            showAlert("Email invalide", "Veuillez entrer une adresse email valide.");
+            return;
+        }
+
+        if (!InputValidator.isValidPhoneNumber(mobileNocre)) {
+            showAlert("Numéro de mobile invalide", "Veuillez entrer un numéro de mobile valide.");
+            return;
+        }
+
+        if (!homeNocre.isEmpty() && !InputValidator.isValidPhoneNumber(homeNocre)) {
+            showAlert("Téléphone fixe invalide", "Le numéro de téléphone fixe est invalide.");
+            return;
+        }
+
+        if (!workPhonecre.isEmpty() && !InputValidator.isValidPhoneNumber(workPhonecre)) {
+            showAlert("Téléphone pro invalide", "Le numéro pro est invalide.");
+            return;
+        }
+
+        if (!companyPhonecre.isEmpty() && !InputValidator.isValidPhoneNumber(companyPhonecre)) {
+            showAlert("Téléphone entreprise invalide", "Le numéro de téléphone de l'entreprise est invalide.");
+            return;
+        }
+
+        if (!InputValidator.isValidGitLink(gitLinkcre)) {
+            showAlert("Lien GitHub invalide", "Veuillez entrer un lien GitHub valide.");
+            return;
+        }
+
+        if (!InputValidator.isValidWebsite(websitecre)) {
+            showAlert("Site web invalide", "Veuillez entrer une URL valide.");
+            return;
+        }
+
+        if (zipText.isEmpty() || !InputValidator.isValidZipCode(zipText)) {
+            showAlert("Code postal invalide", "Le code postal est invalide.");
+            return;
+        }
+
+        int zipCodecre = Integer.parseInt(zipText);
+
+        // --- Création ou mise à jour ---
+        if (selectedContact == null) {
+            // Créer nouveau contact
+            Contact newContact = new Contact(
+                    firstNamecre, lastNamecre, pseudocre, gendercre, birthDatecre, profilePicre,
+                    mobileNocre, homeNocre, mailcre, gitLinkcre, addresscre, zipCodecre, citycre,
+                    companyNamecre, workPhonecre, companyPhonecre, companyMailcre, websitecre, descriptioncre
+            );
+            contactList.add(newContact);
+            crud.addContact(newContact);
+            showAlert("Contact créé", "Le contact a été ajouté avec succès.");
+        } else {
+            // Mettre à jour le contact sélectionné
+            selectedContact.setFirstName(firstNamecre);
+            selectedContact.setLastName(lastNamecre);
+            selectedContact.setNickname(pseudocre);
+            selectedContact.setGender(gendercre);
+            selectedContact.setBirthDate(birthDatecre);
+            selectedContact.setProfilePic(profilePicre);
+            selectedContact.setMobilePhone(mobileNocre);
+            selectedContact.setHomePhone(homeNocre);
+            selectedContact.setEmail(mailcre);
+            selectedContact.setGitLink(gitLinkcre);
+            selectedContact.setAddress(addresscre);
+            selectedContact.setZipCode(zipCodecre);
+            selectedContact.setCity(citycre);
+            selectedContact.setCompanyName(companyNamecre);
+            selectedContact.setWorkPhone(workPhonecre);
+            selectedContact.setCompanyPhone(companyPhonecre);
+            selectedContact.setCompanyEmail(companyMailcre);
+            selectedContact.setWebsite(websitecre);
+            selectedContact.setDescription(descriptioncre);
+
+            crud.updateContact(selectedIndex,selectedContact);
+
+            tableView.refresh(); // Important pour voir les changements
+            showAlert("Contact modifié", "Les informations ont été mises à jour.");
+        }
+
+        clearFields();
+        tableView.getSelectionModel().clearSelection(); // on revient à l’état "aucun contact sélectionné"
     }
 
     // Update
