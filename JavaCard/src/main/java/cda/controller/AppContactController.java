@@ -82,7 +82,7 @@ public class AppContactController {
     private Button cancelChangeButton;
 
     // Controller recherche
-     @FXML
+    @FXML
     private TextField searchContact;
 
     // Controler Tableview
@@ -147,7 +147,8 @@ public class AppContactController {
         tableView.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
                 seeContact(newSelection);
-            }});
+            }
+        });
         searchContact();
     }
 
@@ -178,8 +179,8 @@ public class AppContactController {
     @FXML
     private void create() {
         tableView.getSelectionModel().clearSelection(); // pour désélectionner un éventuel contact
-        clearFields();            // vide tous les champs
         setFieldsDisabled(false); // réactive les champs si besoin
+        clearFields();            // vide tous les champs
     }
 
     //Permet de valider la creation et la modification de contact
@@ -328,10 +329,10 @@ public class AppContactController {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedContact != null) {
-           setFieldsDisabled(false);
+            setFieldsDisabled(false);
 
         } else {
-            showAlert("Aucun contact sélectionné","Veuillez selectionner un contact à modifier");
+            showAlert("Aucun contact sélectionné", "Veuillez selectionner un contact à modifier");
         }
     }
 
