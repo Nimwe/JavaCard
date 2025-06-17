@@ -144,7 +144,7 @@ public class AppContactController {
         gender.setItems(genderList);
 
 
-        tableView.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newSelection) -> {
             if (newSelection != null) {
                 seeContact(newSelection);
             }
@@ -155,9 +155,9 @@ public class AppContactController {
     // Search
     @FXML
     public void searchContact() {
-        FilteredList<Contact> filteredData = new FilteredList<>(contactList, _ -> true);
+        FilteredList<Contact> filteredData = new FilteredList<>(contactList, p -> true);
 
-        searchContact.textProperty().addListener((_, _, newValue) -> {
+        searchContact.textProperty().addListener((obs, oldVal, newValue) -> {
             filteredData.setPredicate(contact -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;

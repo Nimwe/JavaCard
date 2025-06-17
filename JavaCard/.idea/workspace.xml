@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/controller/AppContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/controller/AppContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/contact.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/contact.bin" afterDir="false" />
-    </list>
+    <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +194,7 @@
       <workItem from="1749997226784" duration="301000" />
       <workItem from="1750072371310" duration="15904000" />
       <workItem from="1750096482830" duration="1360000" />
-      <workItem from="1750140364295" duration="13502000" />
+      <workItem from="1750140364295" duration="15784000" />
     </task>
     <servers />
   </component>
