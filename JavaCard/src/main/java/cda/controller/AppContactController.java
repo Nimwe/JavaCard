@@ -7,18 +7,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import cda.Export;
@@ -26,8 +18,12 @@ import cda.classe.Contact;
 import cda.model.AppContactModel;
 
 
-
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +40,9 @@ public class AppContactController {
     @FXML
     private TextField lastName;
     @FXML
-    private ImageView profilePic; 
+    private ImageView profilePic;
+    File file = new File("../assets/img/profil.png");
+    Image defaultPic = new Image(file.toURI().toString());
     @FXML
     private TextField pseudo;
     @FXML
@@ -102,6 +100,7 @@ public class AppContactController {
     // Controller boutons
     private final AppContactModel crud = new AppContactModel();
     private ObservableList<Contact> contactList;
+    private String selectedProfilePicUrl;
 
 
 
@@ -133,6 +132,10 @@ public class AppContactController {
             }
         }
 
+        //met une image par defautl
+        profilePic.setImage(defaultPic);
+
+
         AppContactModel.setContacts(loadedContacts);
         contactList = FXCollections.observableArrayList(AppContactModel.getAllContacts());
         tableView.setItems(contactList);
@@ -140,7 +143,8 @@ public class AppContactController {
         setFieldsDisabled(true);
         gender.setItems(genderList);
 
-        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+
+        tableView.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
                 seeContact(newSelection);
             }});
@@ -150,9 +154,9 @@ public class AppContactController {
     // Search
     @FXML
     public void searchContact() {
-        FilteredList<Contact> filteredData = new FilteredList<>(contactList, p -> true);
+        FilteredList<Contact> filteredData = new FilteredList<>(contactList, _ -> true);
 
-        searchContact.textProperty().addListener((observable, oldValue, newValue) -> {
+        searchContact.textProperty().addListener((_, _, newValue) -> {
             filteredData.setPredicate(contact -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
@@ -174,13 +178,13 @@ public class AppContactController {
     @FXML
     private void create() {
         tableView.getSelectionModel().clearSelection(); // pour désélectionner un éventuel contact
-        setFieldsDisabled(false); // réactive les champs si besoin
         clearFields();            // vide tous les champs
+        setFieldsDisabled(false); // réactive les champs si besoin
     }
 
-    //permet de valider la creation et la modification de contact
+    //Permet de valider la creation et la modification de contact
     @FXML
-    private void handleSaveChange() {
+    private void handleSaveChange()  {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
 
@@ -188,7 +192,7 @@ public class AppContactController {
         // Récupération des champs
         String firstNamecre = firstName.getText().trim();
         String lastNamecre = lastName.getText().trim();
-        String profilePicre = String.valueOf(profilePic);
+        String profilePicre = selectedProfilePicUrl;
         String pseudocre = pseudo.getText().trim();
         String mobileNocre = mobileNo.getText().trim();
         String homeNocre = homeNo.getText().trim();
@@ -279,7 +283,10 @@ public class AppContactController {
             );
             contactList.add(newContact);
             crud.addContact(newContact);
-            showAlert("Contact créé", "Le contact a été ajouté avec succès.");
+            Alert alertCreate = new Alert(Alert.AlertType.INFORMATION);
+            alertCreate.setTitle("Contact creer");
+            alertCreate.setHeaderText("Le contact a été crée");
+            alertCreate.showAndWait();
         } else {
             // Mettre à jour le contact sélectionné
             selectedContact.setFirstName(firstNamecre);
@@ -287,7 +294,7 @@ public class AppContactController {
             selectedContact.setNickname(pseudocre);
             selectedContact.setGender(gendercre);
             selectedContact.setBirthDate(birthDatecre);
-            selectedContact.setProfilePic(profilePicre);
+            selectedContact.setProfilePic(selectedProfilePicUrl);
             selectedContact.setMobilePhone(mobileNocre);
             selectedContact.setHomePhone(homeNocre);
             selectedContact.setEmail(mailcre);
@@ -304,8 +311,11 @@ public class AppContactController {
 
             crud.updateContact(selectedIndex,selectedContact);
 
-            tableView.refresh(); // Important pour voir les changements
-            showAlert("Contact modifié", "Les informations ont été mises à jour.");
+            tableView.refresh();
+            Alert alertUpdate = new Alert(Alert.AlertType.INFORMATION);
+            alertUpdate.setTitle("Contact modifier");
+            alertUpdate.setHeaderText("Le contact a été modifié");
+            alertUpdate.showAndWait();
         }
 
         clearFields();
@@ -343,11 +353,7 @@ public class AppContactController {
                 contactList.remove(selectedContact);
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aucun contact sélectionné");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez selectionner un contact à supprimer");
-            alert.showAndWait();
+            showAlert("Aucun contact sélectionné", "Veuillez selectionner un contact à supprimer");
         }
     }
 
@@ -355,6 +361,7 @@ public class AppContactController {
 
     private final Export exportWindow = new Export();
 
+    //affiche la pop-up d'export de contact
     @FXML
     private void handleExport() {
         exportWindow.showExportWindow(contactList);
@@ -368,7 +375,7 @@ public class AppContactController {
 
     // Cancel de création de contact
     @FXML
-    private void littleCancel() {
+    private void littleCancel()  {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
         if (selectedContact == null) {
             clearFields();
@@ -382,12 +389,25 @@ public class AppContactController {
     @FXML
     private void seeContact(Contact selectedContact) {
 
+
         if (selectedContact != null) {
+            selectedProfilePicUrl = selectedContact.getProfilePic();
             setFieldsDisabled(true);
             firstName.setText(selectedContact.getFirstName());
 
             lastName.setText(selectedContact.getLastName());
-            // comment mettre profilePic ?
+
+            //Chargement de l'image de profil
+            if (selectedContact.getProfilePic() != null && !selectedContact.getProfilePic().isEmpty()) {
+                try {
+                    urlInterpreter(selectedProfilePicUrl);
+                } catch (Exception e) {
+                    System.out.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                }
+            } else {
+                //mettre l'image par defaut si aucun choisis
+                profilePic.setImage(defaultPic);
+            }
             pseudo.setText(selectedContact.getNickName());
             mobileNo.setText(selectedContact.getMobilePhone());
             homeNo.setText(selectedContact.getHomePhone());
@@ -420,6 +440,7 @@ public class AppContactController {
     private void setFieldsDisabled(boolean disable) {
         saveChangeButton.setDisable(disable);
         cancelChangeButton.setDisable(disable);
+        profilePic.setDisable(disable);
         firstName.setDisable(disable);
         lastName.setDisable(disable);
         pseudo.setDisable(disable);
@@ -440,10 +461,11 @@ public class AppContactController {
         description.setDisable(disable);
     }
 
-    // Rendre les taxtfields vierges
-    public void clearFields() {
+    // Rendre les textfields vierges
+    public void clearFields()  {
         firstName.clear();
         lastName.clear();
+        profilePic.setImage(defaultPic);
         pseudo.clear();
         mobileNo.clear();
         homeNo.clear();
@@ -461,4 +483,58 @@ public class AppContactController {
         city.clear();
         description.clear();
     }
+
+    //interpreter l'url comme un navigateur pour pouvoir afficher l'image
+    private void urlInterpreter(String imageUrl) throws IOException {
+        URI uri = URI.create(imageUrl);
+        URL url = uri.toURL();
+        URLConnection conn = url.openConnection();
+        conn.setRequestProperty("User-Agent", "Mozilla/5.0");
+        InputStream inputSream = conn.getInputStream();
+        Image profiltoshow = new Image(inputSream);
+
+
+        profilePic.setImage(profiltoshow);
+    }
+
+    //permet d'ajouter une photo de profil a un contact
+    @FXML
+    private void selectProfilePic() throws IOException {
+
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Entrer l'URL de l'image");
+            dialog.setHeaderText("URL de l'image");
+            dialog.setContentText("Entrez l'URL de l'image");
+
+            //stock l'url dans une variable
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()) {
+                selectedProfilePicUrl = result.get();
+                urlInterpreter(selectedProfilePicUrl);
+            }
+            else{
+                showAlert("Erreur d'url", "l'url n'a pas été enregistré");
+            }
+
+    }
+
+    //Grossis l'image et baisse son opacité quand la souris passe dessus
+    @FXML
+    private void mouseOnImage()  {
+        profilePic.setScaleX(1.1);
+        profilePic.setScaleY(1.1);
+
+        profilePic.opacityProperty().set(.7);
+    }
+
+    //Remet l'image à son état normal quand la souris ne la survole plus
+    @FXML
+    private void mouseOffImage()  {
+        profilePic.setScaleX(1.0);
+        profilePic.setScaleY(1.0);
+
+        profilePic.opacityProperty().set(1.0);
+    }
+
 }
+

@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5f5bc575-549e-427f-8e05-218a37950d45" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cda/controller/AppContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/controller/AppContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/model/AppContactModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cda/serializer/ContactBinarySerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cda/appContact.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/contact.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/contact.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +58,7 @@
     "git-widget-placeholder": "JavaCardV1",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard/JavaCard/src/main/resources/cda",
+    "last_opened_file_path": "C:/Users/asus tuf/OneDrive/Documents/Afpa/Workspace/tmp/JavaCard",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,7 +67,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -197,7 +200,9 @@
       <workItem from="1749801742840" duration="6352000" />
       <workItem from="1749828673988" duration="476000" />
       <workItem from="1749997226784" duration="301000" />
-      <workItem from="1750072371310" duration="5733000" />
+      <workItem from="1750072371310" duration="15904000" />
+      <workItem from="1750096482830" duration="1360000" />
+      <workItem from="1750140364295" duration="13502000" />
     </task>
     <servers />
   </component>
