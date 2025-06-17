@@ -16,6 +16,7 @@ import cda.Export;
 import cda.classe.Contact;
 import cda.model.AppContactModel;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -98,6 +99,9 @@ public class AppContactController {
     private final AppContactModel crud = new AppContactModel();
     private ObservableList<Contact> contactList;
 
+    private String selectedProfilePicUrl;
+
+
     // Controller export
 
     // Méthodes
@@ -114,7 +118,7 @@ public class AppContactController {
 
         // Initialistion de la liste des observables à partir du CRUD
         ContactBinarySerializer serializer = new ContactBinarySerializer();
-        List<?> rawList = serializer.loadList("JavaCard\\src\\main\\resources\\contact.bin");
+        List<?> rawList = serializer.loadList("src/main/resources/contact.bin");
 
         // Créer une liste typée sans cast non sécurisé
         ObservableList<Contact> loadedContacts = FXCollections.observableArrayList();

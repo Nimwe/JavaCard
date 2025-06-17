@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.Image?>
 <SplitPane dividerPositions="0.65" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cda.controller.AppContactController">
    <items>
       <VBox alignment="TOP_CENTER" spacing="50.0" style="-fx-border-color: black; -fx-border-width: 3;">

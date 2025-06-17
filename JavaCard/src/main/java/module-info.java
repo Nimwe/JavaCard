@@ -4,6 +4,9 @@ module cda {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires com.fasterxml.jackson.databind;
 
+
+
+
     opens cda to javafx.fxml;
     opens cda.controller to javafx.fxml;
     opens cda.model to com.fasterxml.jackson.databind, javafx.base;
