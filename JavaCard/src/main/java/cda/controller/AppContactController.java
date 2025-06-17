@@ -1,6 +1,5 @@
 package cda.controller;
 
-
 import cda.serializer.ContactBinarySerializer;
 import cda.tools.InputValidator;
 import javafx.collections.FXCollections;
@@ -24,8 +23,6 @@ import javafx.scene.image.ImageView;
 import cda.Export;
 import cda.classe.Contact;
 import cda.model.AppContactModel;
-
-
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -103,11 +100,7 @@ public class AppContactController {
     private final AppContactModel crud = new AppContactModel();
     private ObservableList<Contact> contactList;
 
-
-
     // Controller export
-
-
 
     // Méthodes
     // Initialisation
@@ -123,7 +116,7 @@ public class AppContactController {
 
         // Initialistion de la liste des observables à partir du CRUD
         ContactBinarySerializer serializer = new ContactBinarySerializer();
-        List<?> rawList = serializer.loadList("src/main/resources/contact.bin");
+        List<?> rawList = serializer.loadList("JavaCard\\src\\main\\resources\\contact.bin");
 
         // Créer une liste typée sans cast non sécurisé
         ObservableList<Contact> loadedContacts = FXCollections.observableArrayList();
@@ -176,15 +169,14 @@ public class AppContactController {
     private void create() {
         tableView.getSelectionModel().clearSelection(); // pour désélectionner un éventuel contact
         setFieldsDisabled(false); // réactive les champs si besoin
-        clearFields();            // vide tous les champs
+        clearFields(); // vide tous les champs
     }
 
-    //permet de valider la creation et la modification de contact
+    // permet de valider la creation et la modification de contact
     @FXML
     private void handleSaveChange() {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-
 
         // Récupération des champs
         String firstNamecre = firstName.getText().trim();
@@ -212,7 +204,7 @@ public class AppContactController {
             return;
         }
 
-        Contact.Gender gendercre =gender.getValue();
+        Contact.Gender gendercre = gender.getValue();
         if (!InputValidator.isChoiceSelected(String.valueOf(gendercre))) {
             showAlert("Genre manquant", "Veuillez sélectionner un genre.");
             return;
@@ -276,8 +268,7 @@ public class AppContactController {
             Contact newContact = new Contact(
                     firstNamecre, lastNamecre, pseudocre, gendercre, birthDatecre, profilePicre,
                     mobileNocre, homeNocre, mailcre, gitLinkcre, addresscre, zipCodecre, citycre,
-                    companyNamecre, workPhonecre, companyPhonecre, companyMailcre, websitecre, descriptioncre
-            );
+                    companyNamecre, workPhonecre, companyPhonecre, companyMailcre, websitecre, descriptioncre);
             contactList.add(newContact);
             crud.addContact(newContact);
             showAlert("Contact créé", "Le contact a été ajouté avec succès.");
@@ -303,7 +294,7 @@ public class AppContactController {
             selectedContact.setWebsite(websitecre);
             selectedContact.setDescription(descriptioncre);
 
-            crud.updateContact(selectedIndex,selectedContact);
+            crud.updateContact(selectedIndex, selectedContact);
 
             tableView.refresh(); // Important pour voir les changements
             showAlert("Contact modifié", "Les informations ont été mises à jour.");

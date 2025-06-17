@@ -1,0 +1,84 @@
+BEGIN:VCARD
+VERSION:3.0
+FN :Dupont Alice
+NICKNAME : Ali
+GENDER : FEMALE
+BIRTH DATE : 1990-05-12
+PROFILE PICTURE : alice.jpg
+MOBILE PHONE : 0612345678
+HOME PHONE : 0147852369
+EMAIL : alice.dupont@example.com
+GIT LINK : https://github.com/aliced
+ADRESS : 123 Rue de Paris
+ZIPCODE : 75001
+CITY : Paris
+COMPANY NAME : TechCorp
+WORK PHONE : 0147234567
+COMPANY PHONE : 0147998888
+COMPANY EMAIL : contact@techcorp.com
+WEBSITE : https://techcorp.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN :Martin Bob
+NICKNAME : Bobby
+GENDER : MALE
+BIRTH DATE : 1985-03-22
+PROFILE PICTURE : bob.png
+MOBILE PHONE : 0622334455
+HOME PHONE : 0155667788
+EMAIL : bob.martin@example.com
+GIT LINK : https://github.com/bobmartin
+ADRESS : 45 Boulevard Haussmann
+ZIPCODE : 75009
+CITY : Paris
+COMPANY NAME : DevSolutions
+WORK PHONE : 0147234560
+COMPANY PHONE : 0147223344
+COMPANY EMAIL : bob@devsolutions.com
+WEBSITE : https://devsolutions.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN :Durand Chloé
+NICKNAME : Clo
+GENDER : FEMALE
+BIRTH DATE : 1995-11-05
+PROFILE PICTURE : chloe.png
+MOBILE PHONE : 0677889900
+HOME PHONE : 0199887766
+EMAIL : chloe.d@example.com
+GIT LINK : https://github.com/chloed
+ADRESS : 78 Avenue des Champs
+ZIPCODE : 75008
+CITY : Paris
+COMPANY NAME : Innovatech
+WORK PHONE : 0177889900
+COMPANY PHONE : 0177889911
+COMPANY EMAIL : c.durand@innovatech.com
+WEBSITE : https://innovatech.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN :Lemoine David
+NICKNAME : Dave
+GENDER : MALE
+BIRTH DATE : 1978-07-30
+PROFILE PICTURE : david.jpg
+MOBILE PHONE : 0633221144
+HOME PHONE : 0133445566
+EMAIL : david.l@example.com
+GIT LINK : https://github.com/davidlemoine
+ADRESS : 12 Rue Victor Hugo
+ZIPCODE : 69002
+CITY : Lyon
+COMPANY NAME : Lemoine Consulting
+WORK PHONE : 0437223344
+COMPANY PHONE : 0437223345
+COMPANY EMAIL : info@lemoineconsulting.com
+WEBSITE : https://lemoineconsulting.com
+END:VCARD
+

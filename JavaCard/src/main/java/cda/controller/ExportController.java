@@ -90,7 +90,7 @@ public class ExportController {
             } else if (vcardRadio.isSelected()) {
                 model.exportToVCard(contacts, path);
             } else if (csvRadio.isSelected()) {
-                model.exportToCSV(contacts, path);
+                model.exportToCSV(contacts, path, ';');
             }
 
             // Fermer la fenêtre après export

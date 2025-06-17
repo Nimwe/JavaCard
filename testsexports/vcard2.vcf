@@ -1,0 +1,28 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Dupont Alice
+TEL:0612345678
+EMAIL:alice.dupont@example.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Martin Bob
+TEL:0622334455
+EMAIL:bob.martin@example.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Durand Chloé
+TEL:0677889900
+EMAIL:chloe.d@example.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Lemoine David
+TEL:0633221144
+EMAIL:david.l@example.com
+END:VCARD
+
