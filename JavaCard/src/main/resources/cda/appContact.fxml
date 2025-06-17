@@ -10,7 +10,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -144,9 +143,8 @@
                   </VBox>
                   <StackPane prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 150;">
                      <children>
-                        <ImageView fx:id="profilePic" fitHeight="150.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="profilePic" fitHeight="150.0" fitWidth="150.0" nodeOrientation="INHERIT" onMouseClicked="#selectProfilePic" onMouseEntered="#mouseOnImage" onMouseExited="#mouseOffImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@assets/img/profil.png" />
                            </image>
                         </ImageView>
                      </children>

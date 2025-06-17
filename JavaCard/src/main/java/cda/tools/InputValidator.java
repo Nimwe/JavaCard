@@ -17,8 +17,7 @@ public class InputValidator {
     }
 
     public static boolean isValidPhoneNumber(String phone) {
-        return phone != null && phone.matches(
-                "\\d{10,15}");
+        return phone != null && phone.matches("\\d{10,15}");
     }
 
     public static boolean isValidGitLink(String link) {
